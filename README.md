@@ -1,10 +1,34 @@
 # TEST LOGIN / LOGOUT
 
-## 구성
+## 개발 환경
 
-### teck set
+### 개발 환경 실행
 
-## 셋팅
+개발 모듈 설정
+
+```bash
+npm install
+OR
+yarn
+```
+
+개발 서버 구동 (http://localhost:3000)
+
+```bash
+npm run start
+OR
+yarn start
+```
+
+스토리북 구동
+
+```bash
+npm run storybook
+OR
+yarn storybook
+```
+
+### 사용 패키지
 
 ## 구조
 
