@@ -1,5 +1,5 @@
 import React from "react";
 
-export function SignUp() {
+export function NotFound() {
   return <div></div>;
 }
