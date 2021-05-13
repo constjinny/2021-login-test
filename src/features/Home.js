@@ -1,5 +1,11 @@
 import React from "react";
+import { Button } from "@components/Button";
 
 export function Home() {
-  return <div></div>;
+  return (
+    <div className="group_home">
+      Home
+      <Button label={"GitHub"} onClick={() => {}} />
+    </div>
+  );
 }

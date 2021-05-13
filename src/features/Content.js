@@ -1,6 +1,5 @@
 import React from "react";
-import {} from "@components";
 
-export function Content() {
-  return <div></div>;
+export function Content({ children }) {
+  return <article>{children}</article>;
 }

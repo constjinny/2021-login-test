@@ -1,11 +1,11 @@
 import React from "react";
+import { Button } from "@components";
 
 export function Footer() {
   return (
     <footer>
-      <span className="material-icons">code</span>
-      <span className="material-icons">facebook</span>
-      <span className="material-icons">email</span>
+      <Button label={"github"} onClick={() => {}} />
+      <Button label={"gitbook"} onClick={() => {}} />
     </footer>
   );
 }
