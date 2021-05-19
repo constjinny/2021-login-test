@@ -10,11 +10,11 @@ export function Header() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/mypage">MyPage</Link>
         </li>
       </ul>
       <div>
-        <Link to="/signup">Sign Up</Link>
+        <Link to="/signin">Sign In</Link>
       </div>
     </header>
   );

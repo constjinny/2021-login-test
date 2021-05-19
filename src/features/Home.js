@@ -1,11 +1,10 @@
 import React from "react";
-import { Button } from "@components/Button";
+import { Form } from "@components";
 
 export function Home() {
   return (
     <div className="group_home">
-      Home
-      <Button label={"GitHub"} onClick={() => {}} />
+      <Form title="Skill set">alala,lsla</Form>
     </div>
   );
 }
