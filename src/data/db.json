@@ -1,0 +1,18 @@
+{
+  "user": [
+    {
+      "nickName": "곽두철",
+      "id": "1234",
+      "password": 1234,
+      "description": "안녕하세요. 곽두철 입니다.",
+      "profileUrl": "@assets/images/profileSample2.jpeg"
+    },
+    {
+      "nickName": "김춘식",
+      "id": "5678",
+      "password": 5678,
+      "description": "안녕하세요. 춘식이는 야옹.",
+      "profileUrl": "@assets/images/profileSample2.jpeg"
+    }
+  ]
+}

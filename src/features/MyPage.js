@@ -8,7 +8,7 @@ export function MyPage() {
   const initUserData = {
     nickName: "곽두팔",
     id: "ididiidd",
-    pw: "dkdkwdow",
+    password: "dkdkwdow",
     description: "소개한다.",
     profileUrl: "",
   };

@@ -1,0 +1,4 @@
+### user 전체 데이터
+### param : none
+### ex url : user/
+GET http://localhost:3001/user/
