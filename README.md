@@ -1,4 +1,4 @@
-# TEST LOGIN / LOGOUT
+# login-test
 
 ## 개발 환경
 
