@@ -15,41 +15,48 @@ server.use(bodyParser.json());
 
 // user 로그인
 server.post("/login", (req, res) => {
-  const userData = req.body.userData;
-  const userList = db
-    .get("user")
-    .find({ id: userData.id, password: userData.password })
-    .value();
-  if (userList) {
-    res.send("통과 토큰발급");
+  const { id, password } = req.body;
+  const checkUser = db.get("user").find({ id, password }).value();
+  const filterPassword = Object.entries(checkUser)
+    .map((data) => {
+      const [key, value] = data;
+      return [key, value];
+    })
+    .filter((data) => data[0] !== "password");
+  const resultUserData = Object.fromEntries(filterPassword);
+
+  if (resultUserData) {
+    return res.send(resultUserData);
   } else {
-    res.send("불통 메인페이지로 이동");
+    return res.status(500).json({
+      status: "error",
+    });
   }
 });
 
 // user 전체 데이터
-server.get("/user", (req, res) => {
+server.get("/user", (_, res) => {
   const resultData = db.get("user").value();
   res.send(resultData);
 });
 
 // 특정 user 데이터
-server.get("/user/:userId", (req, res) => {
-  const userId = req.params.userId;
-  const resultData = db.get("user").find({ id: userId }).value();
+server.get("/user/:id", (req, res) => {
+  const { id } = req.params.id;
+  const resultData = db.get("user").find({ id }).value();
   res.send(resultData);
 });
 
 // user 추가
 server.put("/user", (req, res) => {
-  const userData = req.body.userData;
+  const { id, password, nickName, description, profileUrl } = req.body;
   db.get("user")
     .push({
-      id: userData.id,
-      password: userData.password,
-      nickName: userData.nickName,
-      description: userData.description,
-      profileUrl: userData.profileUrl,
+      id,
+      password,
+      nickName,
+      description,
+      profileUrl,
     })
     .write();
   res.send(db.get("user"));
@@ -57,22 +64,22 @@ server.put("/user", (req, res) => {
 
 // user 제거
 server.delete("/user/:userId", (req, res) => {
-  const userId = parseInt(req.params.userId);
-  db.get("user").remove({ id: userId }).write();
+  const { id } = req.params.id;
+  db.get("user").remove({ id }).write();
   res.send(db.get("user"));
 });
 
 // user 데이터 업데이트
 server.patch("/user/:userId", (req, res) => {
-  const userData = req.body.userData;
+  const { id, password, nickName, description, profileUrl } = req.body;
   db.get("user")
-    .find({ id: userData.id })
+    .find({ id })
     .assign({
-      id: userData.id,
-      password: userData.password,
-      nickName: userData.nickName,
-      description: userData.description,
-      profileUrl: userData.profileUrl,
+      id,
+      password,
+      nickName,
+      description,
+      profileUrl,
     })
     .value();
   res.send(db.get("user"));

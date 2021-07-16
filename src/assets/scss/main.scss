@@ -52,6 +52,8 @@ article {
         .box_profile {
           display: block;
           overflow: hidden;
+          width: 217px;
+          height: 217px;
           border: 3px solid rgb(236, 198, 141);
           border-radius: 50%;
           background-color: rgb(236, 198, 141);
@@ -94,6 +96,12 @@ footer {
 }
 
 // comp
+.btn_text {
+  padding: 0;
+  border: 0 none;
+  background: none;
+}
+
 .btn_basic {
   border-radius: 15px;
   border: 0 none;

@@ -9,15 +9,21 @@ const createRequest = (config) => {
 
   return instance(config)
     .then((res) => {
-      console.log("res", res.data);
       if (res.status === 200) {
-        return res.data ? res.data : Promise.reject({ err: "no res.data" });
+        const checkData = res.data;
+
+        if (checkData) {
+          console.log("checkData", checkData);
+          return checkData;
+        } else {
+          throw new Error({ err: "no res.data" });
+        }
       } else {
-        Promise.reject({ statusCode: res.status });
+        return { statusCode: res.status };
       }
     })
     .catch((err) => {
-      return Promise.reject({ err: err });
+      return { err: err };
     });
 };
 
